@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: 'cartorio'
+  datasource:
+    url: jdbc:mysql://localhost:3306/fornecedor
+    username: root
+    password: admin123
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: false
