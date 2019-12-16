@@ -23,7 +23,7 @@ public class CartorioController {
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable long id) {
         return service.findById(id).map(c -> {
-            return ResponseEntity.ok(CartorioDTO.of(c));
+            return ResponseEntity.ok(CartorioDTO.convertToDtoWithId(c));
         }).orElse(ResponseEntity.notFound().build());
     }
 
@@ -39,10 +39,7 @@ public class CartorioController {
     }
 
     @PutMapping
-    public ResponseEntity alter(@RequestBody CartorioDTO cartorioDTO, @PathVariable long id) {
-        return service.findById(id).map(c -> {
-            c.alterInfos(cartorioDTO);
-            return ResponseEntity.ok(service.save(c));
-        }).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity alter(@RequestBody CartorioDTO cartorioDTO) {
+        return ResponseEntity.ok(service.save(Cartorio.of(cartorioDTO)));
     }
 }

@@ -2,15 +2,21 @@ package br.com.docket.cartorioweb.model;
 
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class Cartorio {
 
-    private final long id;
+    private Long id;
 
-    private final String nome;
+    private String nome;
 
-    private Cartorio(long id, String nome) {
+    protected Cartorio() {
+
+    }
+
+    private Cartorio(final Long id, final String nome) {
         this.id = id;
         this.nome = nome;
     }

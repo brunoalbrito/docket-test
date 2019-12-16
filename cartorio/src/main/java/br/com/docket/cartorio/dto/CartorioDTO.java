@@ -10,7 +10,6 @@ import javax.validation.constraints.NotNull;
 //@JsonIgnoreProperties(value = {"id"})
 public class CartorioDTO {
 
-    @NotNull
     private long id;
 
     @NotNull
